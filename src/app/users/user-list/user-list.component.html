@@ -1,6 +1,9 @@
-<mat-form-field>
+<mat-form-field floatLabel='never'>
     <mat-label>Search</mat-label>
-    <input matInput  placeholder="Ex. Dhrubo" #input>
+    <input matInput [(ngModel)]='searchTerm' placeholder="Ex. Dhrubo" (keyup)='performSearch()' #input>
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf='searchTerm' (click)='clearSearchField()'>
+        <mat-icon>close</mat-icon>
+    </button>
 </mat-form-field>
 
 <div class='mat-elevation-z8'>

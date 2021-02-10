@@ -11,74 +11,11 @@ import {MatPaginator} from '@angular/material/paginator';
 })
 export class UserListComponent implements OnInit, AfterViewInit {
 
-  users: User[] = [
-    {
-      userID: '1',
-      firstName: 'dhrubo',
-      lastName: 'talukder',
-      age: 35,
-      email: 'dhrubo@dh.com',
-      phone: 6468752316,
-    },
-    {
-      userID: '2',
-      firstName: 'rasel',
-      lastName: 'mohd',
-      age: 36,
-      email: 'rasel@dh.com',
-      phone: 6468752316,
-    },
-    {
-      userID: '3',
-      firstName: 'nasir',
-      lastName: 'mohd',
-      age: 36,
-      email: 'nasir@dh.com',
-      phone: 6468752316,
-    },
-    {
-      userID: '4',
-      firstName: 'islam',
-      lastName: 'mohd',
-      age: 36,
-      email: 'islam@dh.com',
-      phone: 6468752316,
-    },
-    {
-      userID: '5',
-      firstName: 'mithu',
-      lastName: 'mohdd',
-      age: 36,
-      email: 'mithu@dh.com',
-      phone: 6468752316,
-    },
-    {
-      userID: '2',
-      firstName: 'rasel',
-      lastName: 'mohd',
-      age: 36,
-      email: 'rasel@dh.com',
-      phone: 6468752316,
-    },
-    {
-      userID: '2',
-      firstName: 'rasel',
-      lastName: 'mohd',
-      age: 36,
-      email: 'rasel@dh.com',
-      phone: 6468752316,
-    },
-    {
-      userID: '2',
-      firstName: 'rasel',
-      lastName: 'mohd',
-      age: 36,
-      email: 'rasel@dh.com',
-      phone: 6468752316,
-    },
-  ];
+
   userList!: MatTableDataSource<any>;
   displayedColumns: string[] = ['firstName', 'lastName', 'age', 'email', 'phone'];
+  searchTerm = ''
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private userService: UserService) { 
@@ -86,19 +23,25 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.userList.paginator = this.paginator;
+    this.userList ? this.userList.paginator = this.paginator : this.userList
   }
 
   ngOnInit(){
-    this.userService.getUsers().subscribe(
-      list => {
-        let array = list.map(item => {
-          return {...item}
-        })
-        this.userList = new MatTableDataSource(this.users)
+    this.userService.getUsers().subscribe({
+      next: users => {
+        this.userList = new MatTableDataSource(users)
         this.userList.paginator = this.paginator
       }
-    )
+    })
+  }
+
+  clearSearchField(): void{
+    this.searchTerm = ''
+    this.performSearch()
+  }
+
+  performSearch() {
+    this.userList.filter = this.searchTerm.trim().toLocaleLowerCase()
   }
 
 }
