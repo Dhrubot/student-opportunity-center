@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "soc-users": {
+      "hosting": {
+        "student-opportunity-center": [
+          "soc-users"
+        ]
+      }
+    }
+  }
+}
