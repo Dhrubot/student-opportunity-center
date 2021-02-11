@@ -6,11 +6,16 @@ import { UserService } from 'src/app/shared/user.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
 
-  constructor(public service: UserService) { }
+
+export class UserComponent implements OnInit {
+  
+  constructor(public service: UserService) { 
+  }
 
   ngOnInit(): void {
+    console.log(this.service.form)
   }
+
 
 }

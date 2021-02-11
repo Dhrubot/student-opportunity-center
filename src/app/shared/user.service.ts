@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -11,42 +11,28 @@ export class UserService {
 
   form = this.fb.group({
     $key: [null],
-    firstName: [''],
-    lastName: [''],
-    age: [null],
-    email: [''],
-    phone: [null],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    age: [null, Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    phone: [null, [Validators.required, Validators.minLength(10)]],
     address: this.fb.group({
-      addressField1: [''],
+      addressField1: ['', Validators.required],
       addressField2: [''],
-      city: [''],
-      state: [''],
-      zip: [''],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      zipcode: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
     }),
   });
 
   getUsers() {
     return this.db.collection('users').valueChanges(({idField: 'userID'}));
-    // users.subscribe(console.log);
-    // const address = this.db.collectionGroup('address').valueChanges();
-    // address.subscribe(console.log);
-    // const employmentHistory = this.db
-    //   .collectionGroup('employmentHistory')
-    //   .valueChanges();
-    // // let hello = this.db
-    // //   .collection('users')
-    // //   .get()
-    // //   .subscribe((querySnapshot) => {
-    // //     querySnapshot.forEach((doc) => {
-    // //       // doc.data() is never undefined for query doc snapshots
-    // //       console.log(doc.id, ' => ', doc.data());
-    // //     });
-    // //   });
-    // const userId = '71ZhsAUWVdm78D4YdDyC'
-    // const userEmploymentHistory = this.db.collection('employmentHistory', ref => ref.where('user', '==', userId))
-    // .valueChanges()
-    // userEmploymentHistory.subscribe(console.log)
   }
 
+  getUserAddress(userID: string) {
+   const address = this.db.collection('users').doc(`${userID}`).collection('address').valueChanges({ idField: 'docId' })
+
+   address.subscribe(console.log)
+  }
 
 }
