@@ -8,6 +8,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter'
 
 @NgModule({
   declarations: [],
@@ -21,6 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
+    MatDatepickerModule,
   ],
   exports: [
     MatToolbarModule,
@@ -31,6 +34,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
+    MatDatepickerModule,
   ],
 })
 export class MaterialModule {}

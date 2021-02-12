@@ -136,7 +136,15 @@
             <input formControlName="jobTitle" matInput placeholder="Title" />
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="startDate" matInput placeholder="Start Date" />
+            <input matInput [matDatepicker]="picker" formControlName="startDate" matInput placeholder="Job Started" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="endDate" matInput placeholder="Job Left" />
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="reasonForLeaving" matInput placeholder="Reason for Leaving..." />
           </mat-form-field>
         </div>
       </mat-grid-tile>
