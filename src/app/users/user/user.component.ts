@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormArray, FormGroupDirective } from '@angular/forms';
 import { UserService } from 'src/app/shared/user.service';
 
 @Component({
@@ -11,23 +11,28 @@ import { UserService } from 'src/app/shared/user.service';
 
 export class UserComponent implements OnInit {
 
-  employmentForm!: FormArray
+  @ViewChild(FormGroupDirective) formGroupDirective!: FormGroupDirective;
   
   constructor(public service: UserService) { 
   }
 
   ngOnInit(): void {
     console.log(this.service.form)
-    this.employmentForm = this.service.form.get('employmentHistory') as FormArray
+  }
+
+  get employmentHistory() {
+    return this.service.form.get('employmentHistory') as FormArray
   }
 
   addEmploymentHistoryForm(): void {
-    this.employmentForm.push(this.service.createEmploymentHistoryForm())
+    this.employmentHistory.push(this.service.createEmploymentHistoryForm())
   }
 
   onSubmit(){
     if(this.service.form.valid) {
       this.service.createUser(this.service.form.value)
+      setTimeout(() => 
+      this.formGroupDirective.resetForm(), 0)
     }
   }
 

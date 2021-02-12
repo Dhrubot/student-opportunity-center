@@ -64,6 +64,9 @@ export class UserService {
     writeBatch.set(newUserDocRef.collection('address').doc(),{
       address: {...user.address}
     })
+    writeBatch.set(newUserDocRef.collection('employmentHistory').doc(),{
+      employmentHistory: {...user.employmentHistory}
+    })
     return writeBatch.commit()
   }
 
