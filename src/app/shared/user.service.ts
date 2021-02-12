@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { User } from '../users/user';
@@ -24,8 +24,21 @@ export class UserService {
       state: ['', Validators.required],
       zipcode: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
     }),
-    employmentHistory: this.fb.array({})
+    employmentHistory: this.fb.array([this.createEmploymentHistoryForm()])
   });
+
+  createEmploymentHistoryForm(){
+    return this.fb.group({
+      companyName: [''],
+      companyAddress: [''],
+      companyPhoneNumber: [null],
+      jobTitle: [''],
+      startDate: [null],
+      endDate: [null],
+      currentJob: [false],
+      reasonForLeaving: ['']
+    })
+  }
 
   getUsers() {
     return this.db.collection('users').valueChanges(({idField: 'userID'}));
