@@ -33,7 +33,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
       next: users => {
         this.userList = new MatTableDataSource(users);
         this.userList.paginator = this.paginator;
-        this.userService.getUserAddress('71ZhsAUWVdm78D4YdDyC')
         console.log(users)
       },
     });
@@ -47,4 +46,11 @@ export class UserListComponent implements OnInit, AfterViewInit {
   performSearch() {
     this.userList.filter = this.searchTerm.trim().toLocaleLowerCase();
   }
+
+  getUserDetails(row: User) {
+    let userID: string = row.userID!
+    this.userService.getUserAddress(userID)
+    this.userService.getUserEmploymentHistory(userID)
+  }
+
 }

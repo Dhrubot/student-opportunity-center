@@ -1,4 +1,3 @@
-
 export interface User {
     userID?: string,
     firstName: string,

@@ -1,4 +1,4 @@
-<form [formGroup]="service.form" (ngSubmit)='onSubmit()'>
+<form [formGroup]="service.form" (ngSubmit)="onSubmit()">
   <mat-grid-list cols="2" rowHeight="300px">
     <!-- Personal Details -->
     <h3>Personal Details</h3>
@@ -136,18 +136,42 @@
             <input formControlName="jobTitle" matInput placeholder="Title" />
           </mat-form-field>
           <mat-form-field>
-            <input matInput [matDatepicker]="picker1" formControlName="startDate" matInput placeholder="Job Started" />
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <input
+              matInput
+              [matDatepicker]="picker1"
+              formControlName="startDate"
+              matInput
+              placeholder="Job Started"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker1"
+            ></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
           </mat-form-field>
-          <mat-checkbox formControlName="isCurrentJob" #isCurrentJob>Currently Working</mat-checkbox>
-          <mat-form-field  *ngIf='!isCurrentJob.checked'>
-            <input matInput [matDatepicker]="picker2" formControlName="endDate" matInput placeholder="Job Left" />
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-checkbox formControlName="isCurrentJob" #isCurrentJob
+            >Currently Working</mat-checkbox
+          >
+          <mat-form-field *ngIf="!isCurrentJob.checked">
+            <input
+              matInput
+              [matDatepicker]="picker2"
+              formControlName="endDate"
+              matInput
+              placeholder="Job Left"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker2"
+            ></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="reasonForLeaving" matInput placeholder="Reason for Leaving..." />
+            <input
+              formControlName="reasonForLeaving"
+              matInput
+              placeholder="Reason for Leaving..."
+            />
           </mat-form-field>
         </div>
       </mat-grid-tile>
@@ -156,7 +180,7 @@
   <div>
     <button
       mat-raised-button
-      type='button'
+      type="button"
       color="secondary"
       (click)="addEmploymentHistoryForm()"
     >
@@ -172,8 +196,8 @@
     >
       SUBMIT
     </button>
-    <button mat-raised-button color="warn">CLEAR</button>
+    <button mat-raised-button color="warn" (click)="onClear()">CLEAR</button>
   </div>
 
-  {{ service.form.value | json}}
+  {{ service.form.value | json }}
 </form>
