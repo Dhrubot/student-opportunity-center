@@ -15,14 +15,16 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { UserService } from './shared/user.service';
-import { UserListComponent } from './users/user-list/user-list.component'
+import { UserListComponent } from './users/user-list/user-list.component';
+import { UserDetailsComponent } from './users/user/user-details/user-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UserComponent,
-    UserListComponent
+    UserListComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
