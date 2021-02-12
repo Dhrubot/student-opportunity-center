@@ -73,7 +73,7 @@ export class UserService {
       .collection('address')
       .valueChanges({ idField: 'docId' });
 
-    address.subscribe(console.log);
+    return address
   }
 
   getUserEmploymentHistory(userID: string) {
@@ -83,7 +83,7 @@ export class UserService {
     .collection('employmentHistory')
     .valueChanges({ idField: 'docId' });
 
-    employmentHistory.subscribe(console.log)
+    return employmentHistory
   }
 
   createUser(user: User) {

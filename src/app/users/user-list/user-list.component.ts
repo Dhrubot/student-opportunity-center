@@ -3,6 +3,8 @@ import { UserService } from 'src/app/shared/user.service';
 import { User } from '../user';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { UserDetailsComponent } from '../user/user-details/user-details.component';
 
 @Component({
   selector: 'app-user-list',
@@ -22,7 +24,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private dialog: MatDialog) {}
 
   ngAfterViewInit() {
     this.userList ? (this.userList.paginator = this.paginator) : this.userList;
@@ -49,8 +51,19 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
   getUserDetails(row: User) {
     let userID: string = row.userID!
-    this.userService.getUserAddress(userID)
-    this.userService.getUserEmploymentHistory(userID)
+    let address = this.userService.getUserAddress(userID)
+    let employmentHistory = this.userService.getUserEmploymentHistory(userID)
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '70%';
+    dialogConfig.height = '90%';
+    dialogConfig.data = {
+      personalInfo: row,
+      addressInfo: address,
+      employmentHistory: employmentHistory
+    };
+
+    this.dialog.open(UserDetailsComponent, dialogConfig)
   }
 
 }

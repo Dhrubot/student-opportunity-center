@@ -1,1 +1,25 @@
-<p>user-details works!</p>
+<h2 mat-dialog-title>{{data.personalInfo.firstName}}'s Information</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content class="mat-typography">
+    <h3 mat-dialog-title><strong>Personal Info</strong></h3>
+    <p>Full Name: {{data.personalInfo.firstName | titlecase}} {{data.personalInfo.lastName | titlecase}} </p>
+    <p>Age: {{data.personalInfo.age}}</p>
+    <p>Email: {{data.personalInfo.email}}</p>
+    <p>Phone: {{data.personalInfo.phone}}</p>
+    <mat-divider></mat-divider>
+    <h3 mat-dialog-title><strong>Address</strong></h3>
+    <p>Full Name: {{data.personalInfo.firstName | titlecase}} {{data.personalInfo.lastName | titlecase}} </p>
+    <p>Age: {{data.personalInfo.age}}</p>
+    <p>Email: {{data.personalInfo.email}}</p>
+    <p>Phone: {{data.personalInfo.phone}}</p>
+    <mat-divider></mat-divider>
+    <h3 mat-dialog-title><strong>Employment History</strong></h3>
+    <p>Full Name: {{data.personalInfo.firstName | titlecase}} {{data.personalInfo.lastName | titlecase}} </p>
+    <p>Age: {{data.personalInfo.age}}</p>
+    <p>Email: {{data.personalInfo.email}}</p>
+    <p>Phone: {{data.personalInfo.phone}}</p>
+    <mat-divider></mat-divider>
+</mat-dialog-content>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+</div>
