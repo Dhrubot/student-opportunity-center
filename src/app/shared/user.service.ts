@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 import { User } from '../users/user';
 
 @Injectable({
@@ -35,7 +34,7 @@ export class UserService {
       jobTitle: [''],
       startDate: [null],
       endDate: [null],
-      currentJob: [false],
+      isCurrentJob: [false],
       reasonForLeaving: ['']
     })
   }

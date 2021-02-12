@@ -4,12 +4,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatMomentDateModule } from '@angular/material-moment-adapter'
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -24,6 +25,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter'
     MatPaginatorModule,
     MatButtonModule,
     MatDatepickerModule,
+    MatMomentDateModule,
+    MatCheckboxModule,
   ],
   exports: [
     MatToolbarModule,
@@ -35,6 +38,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter'
     MatPaginatorModule,
     MatButtonModule,
     MatDatepickerModule,
+    MatMomentDateModule,
+    MatCheckboxModule,
   ],
 })
 export class MaterialModule {}

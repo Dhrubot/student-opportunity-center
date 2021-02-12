@@ -25,6 +25,6 @@ interface  EmploymentHistory {
     jobTitle: string,
     startDate: Date,
     endDate: Date,
-    currentJob: boolean,
+    isCurrentJob: boolean,
     reasonForLeaving: string
 }
