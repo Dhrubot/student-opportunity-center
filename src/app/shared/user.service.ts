@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { User } from '../users/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  
   constructor(private fb: FormBuilder, private db: AngularFirestore) {}
 
   form = this.fb.group({
-    $key: [null],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     age: [null, Validators.required],
@@ -23,6 +24,7 @@ export class UserService {
       state: ['', Validators.required],
       zipcode: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
     }),
+    employmentHistory: this.fb.array({})
   });
 
   getUsers() {
@@ -33,6 +35,23 @@ export class UserService {
    const address = this.db.collection('users').doc(`${userID}`).collection('address').valueChanges({ idField: 'docId' })
 
    address.subscribe(console.log)
+  }
+
+  createUser(user: User) {
+    const newUserDocRef = this.db.firestore.collection("users").doc()
+    let writeBatch = this.db.firestore.batch();
+    // return this.db.collection('users').add(user)
+    writeBatch.set(newUserDocRef,{
+      firstName: user.firstName,
+      lastName: user.lastName,
+      age: user.age,
+      email: user.email,
+      phone: user.phone
+    }),
+    writeBatch.set(newUserDocRef.collection('address').doc(),{
+      address: {...user.address}
+    })
+    return writeBatch.commit()
   }
 
 }

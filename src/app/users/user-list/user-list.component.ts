@@ -34,6 +34,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
         this.userList = new MatTableDataSource(users);
         this.userList.paginator = this.paginator;
         this.userService.getUserAddress('71ZhsAUWVdm78D4YdDyC')
+        console.log(users)
       },
     });
   }

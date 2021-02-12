@@ -17,5 +17,11 @@ export class UserComponent implements OnInit {
     console.log(this.service.form)
   }
 
+  onSubmit(){
+    if(this.service.form.valid) {
+      this.service.createUser(this.service.form.value)
+    }
+  }
+
 
 }

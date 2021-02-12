@@ -1,9 +1,11 @@
-<form [formGroup]="service.form">
+<form [formGroup]="service.form" (submit)='onSubmit()'>
   <mat-grid-list cols="2" rowHeight="300px">
+
+    <!-- Personal Details -->
     <h3>Personal Details</h3>
     <mat-grid-tile>
       <div class="personal-details-container">
-        <input type="hidden" formControlName="$key" />
+        <!-- <input type="hidden" formControlName="$key" /> -->
         <mat-form-field>
           <input formControlName="firstName" matInput placeholder="Firstname" required />
         </mat-form-field>
@@ -26,6 +28,8 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
+
+  <!-- Address Details -->
 
   <mat-grid-list cols="2" rowHeight="300px" formGroupName="address">
     <h3>Address</h3>

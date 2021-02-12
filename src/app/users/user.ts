@@ -6,6 +6,8 @@ export interface User {
     age: number,
     email: string,
     phone: number,
+    address: Address,
+    employmentHistory: EmploymentHistory
 }
 
 interface Address {
@@ -14,4 +16,15 @@ interface Address {
     city: string,
     state: string,
     zipcode: string
+}
+
+interface  EmploymentHistory {
+    companyName: string,
+    companyAddress: string,
+    companyPhoneNumber: number,
+    jobTitle: string,
+    startDate: Date,
+    endDate: Date,
+    currentJob: boolean,
+    reasonForLeaving: string
 }
