@@ -5,8 +5,13 @@ export interface User {
     age: number,
     email: string,
     phone: number,
+    skills: Skill,
     address: Address,
     employmentHistory: EmploymentHistory
+}
+
+export interface Skill {
+    skillName: string
 }
 
 export interface Address {

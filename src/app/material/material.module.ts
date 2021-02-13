@@ -10,11 +10,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -35,6 +36,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatDividerModule,
     MatStepperModule,
     MatSnackBarModule,
+    MatChipsModule,
   ],
   exports: [
     MatToolbarModule,
@@ -52,6 +54,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatDividerModule,
     MatStepperModule,
     MatSnackBarModule,
+    MatChipsModule,
   ],
 })
 export class MaterialModule {}

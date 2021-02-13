@@ -1,0 +1,28 @@
+<mat-grid-list cols="1" rowHeight="300px" [formGroup]="formService.form">
+  <!-- Skills Details -->
+  <h3>Add Professional Skills</h3>
+  <mat-grid-tile formArrayName="skills">
+    <mat-form-field appearance="outline">
+      <mat-label>Skills</mat-label>
+      <mat-chip-list #chipList aria-label="Skill selection">
+        <mat-chip
+          *ngFor="let skill of formService.form.controls.skills.value"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(skill)"
+        >
+          {{ skill }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="eg: React, JavaScript..."
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="addSkill($event)"
+        />
+      </mat-chip-list>
+    </mat-form-field>
+  </mat-grid-tile>
+</mat-grid-list>
+<br />

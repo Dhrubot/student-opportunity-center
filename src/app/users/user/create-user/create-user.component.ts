@@ -31,7 +31,6 @@ export class CreateUserComponent implements OnInit {
 
   onClear() {
     this.clearForm();
-    this.notificationService.success('::Submitted Successfully::')
   }
 
 }

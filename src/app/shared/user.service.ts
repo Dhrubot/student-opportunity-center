@@ -8,7 +8,6 @@ import { User, Address, EmploymentHistory } from '../users/user';
 })
 export class UserService {
   constructor(private fb: FormBuilder, private db: AngularFirestore) {}
-
   form = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
@@ -23,6 +22,7 @@ export class UserService {
         Validators.pattern(/^\d*\.?\d*$/),
       ],
     ],
+    skills: this.fb.array([]),
     address: this.fb.group({
       addressField1: ['', Validators.required],
       addressField2: [''],
@@ -85,6 +85,8 @@ export class UserService {
 
     return employmentHistory
   }
+
+  
 
   createUser(user: User) {
     const newUserDocRef = this.db.firestore.collection('users').doc();
