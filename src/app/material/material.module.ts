@@ -14,6 +14,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -33,6 +34,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatDialogModule,
     MatDividerModule,
     MatStepperModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatToolbarModule,
@@ -49,6 +51,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatDialogModule,
     MatDividerModule,
     MatStepperModule,
+    MatSnackBarModule,
   ],
 })
 export class MaterialModule {}

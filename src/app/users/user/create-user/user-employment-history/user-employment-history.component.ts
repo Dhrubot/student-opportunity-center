@@ -22,5 +22,9 @@ export class UserEmploymentHistoryComponent implements OnInit {
     this.employmentHistory.push(this.service.createEmploymentHistoryForm());
   }
 
+  deleteEmploymentHistoryForm(index: number): void {
+    this.employmentHistory.removeAt(index)
+  }
+
 
 }

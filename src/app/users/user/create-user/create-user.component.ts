@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormArray, FormGroupDirective } from '@angular/forms';
+import { FormGroupDirective } from '@angular/forms';
+import { NotificationService } from 'src/app/shared/notification.service';
 import { UserService } from 'src/app/shared/user.service';
 
 @Component({
@@ -11,15 +12,15 @@ export class CreateUserComponent implements OnInit {
 
   @ViewChild(FormGroupDirective) formGroupDirective!: FormGroupDirective;
 
-  constructor(public service: UserService) {}
+  constructor(public service: UserService, private notificationService: NotificationService) {}
 
   ngOnInit(): void {
-    console.log(this.service.form);
   }
 
   onSubmit() {
     if (this.service.form.valid) {
       this.service.createUser(this.service.form.value);
+      this.notificationService.success('::Submitted Successfully::')
       this.clearForm();
     }
   }
@@ -30,6 +31,7 @@ export class CreateUserComponent implements OnInit {
 
   onClear() {
     this.clearForm();
+    this.notificationService.success('::Submitted Successfully::')
   }
 
 }

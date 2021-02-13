@@ -4,6 +4,27 @@
       formArrayName="employmentHistory"
       *ngFor="let _ of employmentHistory.controls; let i = index"
     >
+
+    <div>
+      <button
+        mat-raised-button
+        type="button"
+        color="secondary"
+        (click)="addEmploymentHistoryForm()"
+      >
+        ADD MORE
+      </button>
+      <button
+      mat-raised-button
+      type="button"
+      color="warn"
+      (click)="deleteEmploymentHistoryForm(i)"
+    >
+      DELETE
+    </button>
+    </div>
+
+    
       <mat-grid-list cols="2" rowHeight="300px" [formGroupName]="i">
         <h3>Employment History</h3>
         <mat-grid-tile>
@@ -78,16 +99,6 @@
           </div>
         </mat-grid-tile>
       </mat-grid-list>
-    </div>
-    <div>
-      <button
-        mat-raised-button
-        type="button"
-        color="secondary"
-        (click)="addEmploymentHistoryForm()"
-      >
-        ADD MORE
-      </button>
     </div>
   </ng-container>
 <button type="button" mat-button matStepperPrevious>Back</button>

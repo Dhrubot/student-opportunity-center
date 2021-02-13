@@ -29,3 +29,15 @@
 .button-row button {
   margin: 5px;
 }
+
+snack-bar-container.success {
+  color: rgb(183, 223, 185);
+  background-color: rgb(7, 17, 7);
+}
+
+snack-bar-container.notification simple-snack-bar{
+  display: flex;
+  font-size: 1rem;
+  justify-content: center;
+} 
+
