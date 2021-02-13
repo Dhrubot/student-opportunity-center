@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-.toolbar-container {
+html, body { height: 100%;}
+body { margin: 0;}
+
+.main-container {
+  height: 100%;
+}
+
+/* .toolbar-container {
   display: flex;
   justify-content: center;
 }
@@ -44,5 +51,5 @@ snack-bar-container.notification simple-snack-bar{
 .create-user-dialog{
   display: flex;
   justify-content: center;
-}
+} */
 

@@ -1,17 +1,18 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from 'src/app/shared/user.service';
 import { User } from '../user';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserDetailsComponent } from '../user/user-details/user-details.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent implements OnInit, AfterViewInit {
+export class UserListComponent implements OnInit,OnDestroy, AfterViewInit {
   userList!: MatTableDataSource<any>;
   displayedColumns: string[] = [
     'firstName',
@@ -21,6 +22,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
     'phone',
   ];
   searchTerm = '';
+  userSubscription!: Subscription
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -31,7 +33,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe({
+    this.userSubscription = this.userService.getUsers().subscribe({
       next: users => {
         this.userList = new MatTableDataSource(users);
         this.userList.paginator = this.paginator;
@@ -45,7 +47,7 @@ export class UserListComponent implements OnInit, AfterViewInit {
     this.performSearch();
   }
 
-  performSearch() {
+  performSearch(): void {
     this.userList.filter = this.searchTerm.trim().toLocaleLowerCase();
   }
 
@@ -56,7 +58,6 @@ export class UserListComponent implements OnInit, AfterViewInit {
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '70%';
-    dialogConfig.height = '90%';
     dialogConfig.data = {
       personalInfo: row,
       addressInfo: address,
@@ -64,6 +65,10 @@ export class UserListComponent implements OnInit, AfterViewInit {
     };
 
     this.dialog.open(UserDetailsComponent, dialogConfig)
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe()
   }
 
 }

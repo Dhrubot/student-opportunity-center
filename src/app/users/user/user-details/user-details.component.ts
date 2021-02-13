@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/shared/user.service';
 import { User } from '../../user';
 
@@ -8,10 +9,12 @@ import { User } from '../../user';
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css']
 })
-export class UserDetailsComponent implements OnInit {
+export class UserDetailsComponent implements OnInit, OnDestroy {
   userPersonalInfo!: User
   address: any
   employmentHistory!: any
+  addressSubscription!: Subscription
+  employmentSubscription!: Subscription
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {personalInfo: User}, private userService: UserService) { }
 
@@ -22,7 +25,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getAddress() {
-    this.userService.getUserAddress(this.userPersonalInfo.userID!).subscribe({
+    this.addressSubscription = this.userService.getUserAddress(this.userPersonalInfo.userID!).subscribe({
       next: address => {
         this.address = address
         console.log(this.address)
@@ -31,13 +34,18 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getEmploymentHistory() {
-    this.userService.getUserEmploymentHistory(this.userPersonalInfo.userID!)
+    this.employmentSubscription = this.userService.getUserEmploymentHistory(this.userPersonalInfo.userID!)
     .subscribe({
       next: employmentHistory => {
         this.employmentHistory = employmentHistory
         console.log(this.employmentHistory)
       }
     })
+  }
+
+  ngOnDestroy() {
+    this.addressSubscription.unsubscribe()
+    this.employmentSubscription.unsubscribe()
   }
 
 }

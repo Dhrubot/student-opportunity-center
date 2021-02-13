@@ -1,5 +1,6 @@
-<mat-toolbar class="toolbar-container">
-    <mat-icon>menu_book</mat-icon>
-    <span>{{title}}</span>
+<mat-toolbar class="toolbar-container" fxLayout="row">
+    <div fxFlex='0'>
+        {{title}}
+    </div> 
     <button mat-button (click)="onClickCreateUser()">Create User</button>
 </mat-toolbar>
