@@ -1,8 +1,15 @@
 <form [formGroup]="service.form" (ngSubmit)="onSubmit()">
-  
-    <app-user-personal-info></app-user-personal-info>
-    <app-user-address-info></app-user-address-info>
-    <app-user-employment-history></app-user-employment-history>
+  <mat-horizontal-stepper #stepper linear>
+    <mat-step>
+      <app-user-personal-info></app-user-personal-info>
+    </mat-step>
+    <mat-step>
+      <app-user-address-info></app-user-address-info>
+    </mat-step>
+    <mat-step>
+      <app-user-employment-history></app-user-employment-history>
+    </mat-step>
+    <mat-step>
       <div class="button-row">
       <button
         mat-raised-button
@@ -14,5 +21,9 @@
       </button>
       <button mat-raised-button color="warn" (click)="onClear()">CLEAR</button>
     </div>
+  </mat-step>
+  </mat-horizontal-stepper>
 </form>
+
+
   

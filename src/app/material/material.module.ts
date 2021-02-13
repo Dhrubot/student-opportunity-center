@@ -14,7 +14,6 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatStepperModule} from '@angular/material/stepper';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @NgModule({
   declarations: [],
@@ -51,9 +50,5 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
     MatDividerModule,
     MatStepperModule,
   ],
-
-  providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
-  }]
 })
 export class MaterialModule {}
