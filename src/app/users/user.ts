@@ -9,7 +9,7 @@ export interface User {
     employmentHistory: EmploymentHistory
 }
 
-interface Address {
+export interface Address {
     addressField1: string,
     addressField2: string,
     city: string,
@@ -17,7 +17,7 @@ interface Address {
     zipcode: string
 }
 
-interface  EmploymentHistory {
+export interface  EmploymentHistory {
     companyName: string,
     companyAddress: string,
     companyPhoneNumber: number,

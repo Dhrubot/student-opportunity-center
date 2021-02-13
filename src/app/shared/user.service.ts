@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { User } from '../users/user';
+import { User, Address, EmploymentHistory } from '../users/user';
 
 @Injectable({
   providedIn: 'root',
@@ -90,6 +90,8 @@ export class UserService {
     const newUserDocRef = this.db.firestore.collection('users').doc();
     let writeBatch = this.db.firestore.batch();
     // return this.db.collection('users').add(user)
+    const address: Address = user.address
+    const employmentHistory: EmploymentHistory = user.employmentHistory
     writeBatch.set(newUserDocRef, {
       firstName: user.firstName,
       lastName: user.lastName,
@@ -98,10 +100,10 @@ export class UserService {
       phone: user.phone,
     }),
       writeBatch.set(newUserDocRef.collection('address').doc(), {
-        address: { ...user.address },
+        address,
       });
     writeBatch.set(newUserDocRef.collection('employmentHistory').doc(), {
-      employmentHistory: { ...user.employmentHistory },
+      employmentHistory,
     });
     return writeBatch.commit();
   }
