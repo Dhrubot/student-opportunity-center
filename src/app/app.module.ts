@@ -17,6 +17,10 @@ import { UserComponent } from './users/user/user.component';
 import { UserService } from './shared/user.service';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserDetailsComponent } from './users/user/user-details/user-details.component';
+import { CreateUserComponent } from './users/user/create-user/create-user.component';
+import { UserPersonalInfoComponent } from './users/user/create-user/user-personal-info/user-personal-info.component';
+import { UserAddressInfoComponent } from './users/user/create-user/user-address-info/user-address-info.component';
+import { UserEmploymentHistoryComponent } from './users/user/create-user/user-employment-history/user-employment-history.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,10 @@ import { UserDetailsComponent } from './users/user/user-details/user-details.com
     UserComponent,
     UserListComponent,
     UserDetailsComponent,
+    CreateUserComponent,
+    UserPersonalInfoComponent,
+    UserAddressInfoComponent,
+    UserEmploymentHistoryComponent,
   ],
   imports: [
     BrowserModule,

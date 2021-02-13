@@ -1,0 +1,48 @@
+<mat-grid-list cols="2" rowHeight="300px" [formGroup]='formService.form'>
+    <!-- Personal Details -->
+    <h3>Personal Details</h3>
+    <mat-grid-tile>
+      <div class="personal-details-container">
+        <!-- <input type="hidden" formControlName="$key" /> -->
+        <mat-form-field>
+          <input
+            formControlName="firstName"
+            matInput
+            placeholder="Firstname"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            formControlName="lastName"
+            matInput
+            placeholder="Lastname"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="age" matInput placeholder="Age" required />
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="personal-details-container">
+        <mat-form-field>
+          <input
+            formControlName="email"
+            matInput
+            placeholder="Email"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            formControlName="phone"
+            matInput
+            placeholder="Phone"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>

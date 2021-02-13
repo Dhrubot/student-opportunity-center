@@ -1,0 +1,18 @@
+<form [formGroup]="service.form" (ngSubmit)="onSubmit()">
+  
+    <app-user-personal-info></app-user-personal-info>
+    <app-user-address-info></app-user-address-info>
+    <app-user-employment-history></app-user-employment-history>
+      <div class="button-row">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!service.form.valid"
+      >
+        SUBMIT
+      </button>
+      <button mat-raised-button color="warn" (click)="onClear()">CLEAR</button>
+    </div>
+</form>
+  
