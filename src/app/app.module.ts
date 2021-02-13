@@ -21,6 +21,8 @@ import { CreateUserComponent } from './users/user/create-user/create-user.compon
 import { UserPersonalInfoComponent } from './users/user/create-user/user-personal-info/user-personal-info.component';
 import { UserAddressInfoComponent } from './users/user/create-user/user-address-info/user-address-info.component';
 import { UserEmploymentHistoryComponent } from './users/user/create-user/user-employment-history/user-employment-history.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { UserEmploymentHistoryComponent } from './users/user/create-user/user-em
     UserPersonalInfoComponent,
     UserAddressInfoComponent,
     UserEmploymentHistoryComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
