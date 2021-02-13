@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/user.service';
-import { Skill } from 'src/app/users/user';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
@@ -20,7 +19,8 @@ export class UserSkillComponent implements OnInit {
   constructor(public formService: UserService) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   addSkill(event: MatChipInputEvent) {
     const input = event.input;
@@ -35,7 +35,7 @@ export class UserSkillComponent implements OnInit {
     }
   }
 
-  remove(skill: Skill): void {
+  remove(skill: string): void {
     const index = this.formService.form.controls.skills.value.indexOf(skill);
 
     if (index >= 0) {

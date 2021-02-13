@@ -100,6 +100,7 @@ export class UserService {
       age: user.age,
       email: user.email,
       phone: user.phone,
+      skills: user.skills,
     }),
       writeBatch.set(newUserDocRef.collection('address').doc(), {
         address,

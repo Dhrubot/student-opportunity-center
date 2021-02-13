@@ -5,13 +5,9 @@ export interface User {
     age: number,
     email: string,
     phone: number,
-    skills: Skill,
+    skills: string[],
     address: Address,
     employmentHistory: EmploymentHistory
-}
-
-export interface Skill {
-    skillName: string
 }
 
 export interface Address {
