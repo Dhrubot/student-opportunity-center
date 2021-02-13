@@ -41,3 +41,8 @@ snack-bar-container.notification simple-snack-bar{
   justify-content: center;
 } 
 
+.create-user-dialog{
+  display: flex;
+  justify-content: center;
+}
+

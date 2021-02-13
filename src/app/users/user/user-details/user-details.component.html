@@ -19,22 +19,48 @@
     <p>Zipcode: {{ address[i].address.zipcode }}</p>
   </ng-container>
   <mat-divider></mat-divider>
-  <ng-container *ngFor="let _ of employmentHistory; let i = index;">
+  <h3 mat-dialog-title><strong>Skills</strong></h3>
+  <ul>
+    <ng-container *ngFor="let skill of userPersonalInfo.skills;">
+      <li>{{ skill | titlecase }}</li>
+    </ng-container>
+  </ul>
+  <mat-divider></mat-divider>
+  <ng-container *ngFor="let _ of employmentHistory; let i = index">
     <ng-container
       *ngFor="
         let hello of employmentHistory[i].employmentHistory;
         let j = index
       "
     >
-      <h3 mat-dialog-title><strong>Employment History {{j + 1}}</strong></h3>
-        <!-- new Date(timestamp).toLocaleDateString("en-us") -->
-      <p>Company Name: {{ employmentHistory[i].employmentHistory[j].companyName }}</p>
-      <p>Address: {{ employmentHistory[i].employmentHistory[j].address }}</p>
-      <p>Company Phone Number: {{ employmentHistory[i].employmentHistory[j].companyPhoneNumber }}</p>
+      <h3 mat-dialog-title>
+        <strong>Employment History {{ j + 1 }}</strong>
+      </h3>
+      <!-- new Date(timestamp).toLocaleDateString("en-us") -->
+      <p>
+        Company Name:
+        {{ employmentHistory[i].employmentHistory[j].companyName }}
+      </p>
+      <p>Company Address: {{ employmentHistory[i].employmentHistory[j].companyAddress }}</p>
+      <p>
+        Company Phone Number:
+        {{ employmentHistory[i].employmentHistory[j].companyPhoneNumber }}
+      </p>
       <p>Job Title: {{ employmentHistory[i].employmentHistory[j].jobTitle }}</p>
-      <p>Start Date: {{ employmentHistory[i].employmentHistory[j].startDate.toDate() | date }}</p>
-      <p *ngIf="!employmentHistory[i].employmentHistory[j].isCurrentJob">End Date: {{ employmentHistory[i].employmentHistory[j].endDate.toDate() | date }}</p>
-      <p>Reason For Leaving: {{ employmentHistory[i].employmentHistory[j].reasonForLeaving }}</p>
+      <p>
+        Start Date:
+        {{
+          employmentHistory[i].employmentHistory[j].startDate.toDate() | date
+        }}
+      </p>
+      <p *ngIf="!employmentHistory[i].employmentHistory[j].isCurrentJob">
+        End Date:
+        {{ employmentHistory[i].employmentHistory[j].endDate.toDate() | date }}
+      </p>
+      <p>
+        Reason For Leaving:
+        {{ employmentHistory[i].employmentHistory[j].reasonForLeaving }}
+      </p>
     </ng-container>
   </ng-container>
   <mat-divider></mat-divider>

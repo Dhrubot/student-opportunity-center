@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UserService } from 'src/app/shared/user.service';
-import { Address, EmploymentHistory, User } from '../../user';
+import { User } from '../../user';
 
 @Component({
   selector: 'app-user-details',
