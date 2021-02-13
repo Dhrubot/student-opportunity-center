@@ -71,7 +71,7 @@ export class UserService {
       .collection('users')
       .doc(`${userID}`)
       .collection('address')
-      .valueChanges({ idField: 'docId' });
+      .valueChanges();
 
     return address
   }
@@ -81,7 +81,7 @@ export class UserService {
     .collection('users')
     .doc(`${userID}`)
     .collection('employmentHistory')
-    .valueChanges({ idField: 'docId' });
+    .valueChanges();
 
     return employmentHistory
   }

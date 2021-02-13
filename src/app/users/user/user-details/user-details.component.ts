@@ -31,7 +31,8 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getEmploymentHistory() {
-    this.userService.getUserEmploymentHistory(this.userPersonalInfo.userID!).subscribe({
+    this.userService.getUserEmploymentHistory(this.userPersonalInfo.userID!)
+    .subscribe({
       next: employmentHistory => {
         this.employmentHistory = employmentHistory
         console.log(this.employmentHistory)

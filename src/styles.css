@@ -15,12 +15,10 @@
   width: 100%;
 }
 
-.user-list-table {
-  width: 25%;
-}
 
 .user-list-table {
-  width: 100%
+  width: 100%;
+  cursor: pointer;
 }
 
 

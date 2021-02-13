@@ -13,6 +13,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [],
@@ -31,6 +32,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatCheckboxModule,
     MatDialogModule,
     MatDividerModule,
+    MatStepperModule,
   ],
   exports: [
     MatToolbarModule,
@@ -46,6 +48,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatCheckboxModule,
     MatDialogModule,
     MatDividerModule,
+    MatStepperModule,
   ],
 })
 export class MaterialModule {}

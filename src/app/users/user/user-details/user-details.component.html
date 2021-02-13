@@ -1,30 +1,40 @@
-<h2 mat-dialog-title>{{data.personalInfo.firstName}}'s Information</h2>
+<h2 mat-dialog-title>{{ data.personalInfo.firstName }}'s Information</h2>
 <mat-divider></mat-divider>
 <mat-dialog-content class="mat-typography">
-    <h3 mat-dialog-title><strong>Personal Info</strong></h3>
-    <p>Full Name: {{userPersonalInfo.firstName | titlecase}} {{userPersonalInfo.lastName | titlecase}} </p>
-    <p>Age: {{userPersonalInfo.age}}</p>
-    <p>Email: {{userPersonalInfo.email}}</p>
-    <p>Phone: {{userPersonalInfo.phone}}</p>
-    <mat-divider></mat-divider>
-    <ng-container *ngFor="let _ of address; let i = index">
+  <h3 mat-dialog-title><strong>Personal Info</strong></h3>
+  <p>
+    Full Name: {{ userPersonalInfo.firstName | titlecase }}
+    {{ userPersonalInfo.lastName | titlecase }}
+  </p>
+  <p>Age: {{ userPersonalInfo.age }}</p>
+  <p>Email: {{ userPersonalInfo.email }}</p>
+  <p>Phone: {{ userPersonalInfo.phone }}</p>
+  <mat-divider></mat-divider>
+  <ng-container *ngFor="let _ of address; let i = index">
     <h3 mat-dialog-title><strong>Address</strong></h3>
-    <p>Street Address: {{address[i].address.addressField1}}</p>
-    <p>Apt/Fl: {{address[i].address.addressField2 || ''}}</p>
-    <p>City: {{address[i].address.city}}</p>
-    <p>State: {{address[i].address.state}}</p>
-    <p>Zipcode: {{address[i].address.zipcode}}</p>
+    <p>Street Address: {{ address[i].address.addressField1 }}</p>
+    <p>Apt/Fl: {{ address[i].address.addressField2 || "" }}</p>
+    <p>City: {{ address[i].address.city }}</p>
+    <p>State: {{ address[i].address.state }}</p>
+    <p>Zipcode: {{ address[i].address.zipcode }}</p>
+  </ng-container>
+  <mat-divider></mat-divider>
+  <ng-container *ngFor="let _ of employmentHistory; let i = index">
+    <ng-container
+      *ngFor="
+        let hello of employmentHistory[i].employmentHistory;
+        let j = index
+      "
+    >
+      <h3 mat-dialog-title><strong>Employment History {{j + 1}}</strong></h3>
+      <p>Company Name: {{ employmentHistory[i].employmentHistory[j].companyName }}</p>
+      <p>Age: {{ data.personalInfo.age }}</p>
+      <p>Email: {{ data.personalInfo.email }}</p>
+      <p>Phone: {{ data.personalInfo.phone }}</p>
     </ng-container>
-    <mat-divider></mat-divider>
-    <ng-container *ngFor="let _ of employmentHistory; let i = index">
-    <h3 mat-dialog-title><strong>Employment History</strong></h3>
-    <p>Company Name: {{employmentHistory[i].employmentHistory.companyName1}} </p>
-    <p>Age: {{data.personalInfo.age}}</p>
-    <p>Email: {{data.personalInfo.email}}</p>
-    <p>Phone: {{data.personalInfo.phone}}</p>
-</ng-container>
-    <mat-divider></mat-divider>
+  </ng-container>
+  <mat-divider></mat-divider>
 </mat-dialog-content>
 <div mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>
+  <button mat-button mat-dialog-close>Close</button>
 </div>
