@@ -5,16 +5,14 @@ import { UserService } from 'src/app/shared/user.service';
 @Component({
   selector: 'app-user-employment-history',
   templateUrl: './user-employment-history.component.html',
-  styleUrls: ['./user-employment-history.component.css']
+  styleUrls: ['./user-employment-history.component.css'],
 })
 export class UserEmploymentHistoryComponent implements OnInit {
-
   constructor(public service: UserService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  get employmentHistory() {
+  get employmentHistory(): FormArray {
     return this.service.form.get('employmentHistory') as FormArray;
   }
 
@@ -23,8 +21,6 @@ export class UserEmploymentHistoryComponent implements OnInit {
   }
 
   deleteEmploymentHistoryForm(index: number): void {
-    this.employmentHistory.removeAt(index)
+    this.employmentHistory.removeAt(index);
   }
-
-
 }

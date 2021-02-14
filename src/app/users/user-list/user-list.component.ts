@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  OnInit,
+  OnDestroy,
+} from '@angular/core';
 import { UserService } from 'src/app/shared/user.service';
 import { User } from '../user';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,7 +18,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent implements OnInit,OnDestroy, AfterViewInit {
+export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
   userList!: MatTableDataSource<any>;
   displayedColumns: string[] = [
     'firstName',
@@ -22,7 +28,7 @@ export class UserListComponent implements OnInit,OnDestroy, AfterViewInit {
     'phone',
   ];
   searchTerm = '';
-  userSubscription!: Subscription
+  userSubscription!: Subscription;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -34,10 +40,10 @@ export class UserListComponent implements OnInit,OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.userSubscription = this.userService.getUsers().subscribe({
-      next: users => {
+      next: (users) => {
         this.userList = new MatTableDataSource(users);
         this.userList.paginator = this.paginator;
-        console.log(users)
+        console.log(users);
       },
     });
   }
@@ -52,23 +58,22 @@ export class UserListComponent implements OnInit,OnDestroy, AfterViewInit {
   }
 
   getUserDetails(row: User) {
-    let userID: string = row.userID!
-    let address = this.userService.getUserAddress(userID)
-    let employmentHistory = this.userService.getUserEmploymentHistory(userID)
+    let userID: string = row.userID!;
+    let address = this.userService.getUserAddress(userID);
+    let employmentHistory = this.userService.getUserEmploymentHistory(userID);
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '70%';
     dialogConfig.data = {
       personalInfo: row,
       addressInfo: address,
-      employmentHistory: employmentHistory
+      employmentHistory: employmentHistory,
     };
 
-    this.dialog.open(UserDetailsComponent, dialogConfig)
+    this.dialog.open(UserDetailsComponent, dialogConfig);
   }
 
   ngOnDestroy(): void {
-    this.userSubscription.unsubscribe()
+    this.userSubscription.unsubscribe();
   }
-
 }

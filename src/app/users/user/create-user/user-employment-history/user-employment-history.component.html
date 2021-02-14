@@ -80,28 +80,28 @@
         </mat-form-field>
       </div>
     </div>
-      <button
-        mat-button
-        type="button"
-        color="secondary"
-        (click)="addEmploymentHistoryForm()"
-      >
-        Add More
-      </button>
-      <button
-        mat-button
-        type="button"
-        color="warn"
-        (click)="deleteEmploymentHistoryForm(i)"
-        *ngIf='employmentHistory.controls.length > 1'
-      >
-        DELETE
-      </button>
+    <button
+      mat-button
+      type="button"
+      color="secondary"
+      (click)="addEmploymentHistoryForm()"
+    >
+      Add More
+    </button>
+    <button
+      mat-button
+      type="button"
+      color="warn"
+      (click)="deleteEmploymentHistoryForm(i)"
+      *ngIf="employmentHistory.controls.length > 1"
+    >
+      DELETE
+    </button>
     <mat-divider></mat-divider>
   </div>
 </ng-container>
 
-<div class="stepper-button" align='end'>
+<div class="stepper-button" align="end">
   <button type="button" mat-button matStepperPrevious>Back</button>
   <button type="button" mat-button matStepperNext>Next</button>
 </div>

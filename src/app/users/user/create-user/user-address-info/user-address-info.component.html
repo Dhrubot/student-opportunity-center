@@ -8,24 +8,24 @@
     formGroupName="address"
   >
     <div fxLayout="column" fxLayoutAlign="space-around start">
-        <mat-form-field>
-          <input
-            formControlName="addressField1"
-            matInput
-            placeholder="Address Field 1"
-            required
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            formControlName="addressField2"
-            matInput
-            placeholder="Address Field 2"
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input formControlName="city" matInput placeholder="city" required />
-        </mat-form-field>
+      <mat-form-field>
+        <input
+          formControlName="addressField1"
+          matInput
+          placeholder="Address Field 1"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          formControlName="addressField2"
+          matInput
+          placeholder="Address Field 2"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input formControlName="city" matInput placeholder="city" required />
+      </mat-form-field>
     </div>
 
     <div fxLayout="column" fxLayoutAlign="space-around start">
@@ -43,7 +43,8 @@
     </div>
   </div>
 </ng-container>
-<div class='stepper-button' align="end">
+<mat-divider></mat-divider>
+<div class="stepper-button" align="end">
   <button type="button" mat-button matStepperPrevious>Back</button>
   <button type="button" mat-button matStepperNext>Next</button>
 </div>

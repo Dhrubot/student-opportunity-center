@@ -1,51 +1,45 @@
 <h3>Personal Details</h3>
-<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around start" [formGroup]='formService.form'>
-    <!-- Personal Details -->
+<div
+  fxLayout="row wrap"
+  fxLayout.xs="column"
+  fxLayoutAlign="space-around start"
+  [formGroup]="formService.form"
+>
+  <!-- Personal Details -->
 
-    <div fxLayout="column" fxLayoutAlign="space-around start" >
-        <!-- <input type="hidden" formControlName="$key" /> -->
-        <mat-form-field>
-          <input
-            formControlName="firstName"
-            matInput
-            placeholder="Firstname"
-            required
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            formControlName="lastName"
-            matInput
-            placeholder="Lastname"
-            required
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input formControlName="age" matInput placeholder="Age" required />
-        </mat-form-field>
-    </div>
-
-
-    <div fxLayout="column" fxLayoutAlign="space-around start" >
-        <mat-form-field>
-          <input
-            formControlName="email"
-            matInput
-            placeholder="Email"
-            required
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            formControlName="phone"
-            matInput
-            placeholder="Phone"
-            required
-          />
-        </mat-form-field>
-    </div>
+  <div fxLayout="column" fxLayoutAlign="space-around start">
+    <!-- <input type="hidden" formControlName="$key" /> -->
+    <mat-form-field>
+      <input
+        formControlName="firstName"
+        matInput
+        placeholder="Firstname"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        formControlName="lastName"
+        matInput
+        placeholder="Lastname"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="age" matInput placeholder="Age" required />
+    </mat-form-field>
   </div>
-  <mat-divider></mat-divider>
-  <div class='stepper-button' align='end'> 
-    <button  mat-button type='button' matStepperNext>Next</button>
+
+  <div fxLayout="column" fxLayoutAlign="space-around start">
+    <mat-form-field>
+      <input formControlName="email" matInput placeholder="Email" required />
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="phone" matInput placeholder="Phone" required />
+    </mat-form-field>
   </div>
+</div>
+<mat-divider></mat-divider>
+<div class="stepper-button" align="end">
+  <button mat-button type="button" matStepperNext>Next</button>
+</div>

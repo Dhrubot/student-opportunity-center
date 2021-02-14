@@ -67,6 +67,10 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
   width: 100%;
 }
 
+.skill-form-field {
+  width: 100%;
+}
+
 
 /* .toolbar-container {
   display: flex;

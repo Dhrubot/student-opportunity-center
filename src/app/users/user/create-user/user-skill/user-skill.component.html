@@ -2,7 +2,7 @@
   <!-- Skills Details -->
   <h3>Add Professional Skills</h3>
   <mat-grid-tile formArrayName="skills">
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class='skill-form-field'>
       <mat-label>Skills</mat-label>
       <mat-chip-list #chipList aria-label="Skill selection">
         <mat-chip
@@ -20,9 +20,10 @@
           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
           [matChipInputAddOnBlur]="addOnBlur"
           (matChipInputTokenEnd)="addSkill($event)"
+          class='skill-input-area'
         />
       </mat-chip-list>
     </mat-form-field>
   </mat-grid-tile>
 </mat-grid-list>
-<br />
+

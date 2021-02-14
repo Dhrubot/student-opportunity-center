@@ -80,17 +80,19 @@
             {{ employmentHistory[i].employmentHistory[j].reasonForLeaving }}
           </p>
         </ng-container>
-      <ng-container *ngIf="employmentHistory[i].employmentHistory[j].isCurrentJob">
-        <p>
-          <strong>Employment Status:</strong>
-          Currently Employed 
-        </p>
-      </ng-container>
+        <ng-container
+          *ngIf="employmentHistory[i].employmentHistory[j].isCurrentJob"
+        >
+          <p>
+            <strong>Employment Status:</strong>
+            Currently Employed
+          </p>
+        </ng-container>
       </ng-container>
     </ng-container>
     <mat-divider></mat-divider>
   </mat-dialog-content>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>
 </div>
