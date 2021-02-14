@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroupDirective } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { UserService } from 'src/app/shared/user.service';
 
@@ -12,7 +13,7 @@ export class CreateUserComponent implements OnInit {
 
   @ViewChild(FormGroupDirective) formGroupDirective!: FormGroupDirective;
 
-  constructor(public service: UserService, private notificationService: NotificationService) {}
+  constructor(public service: UserService, private notificationService: NotificationService, public dialogRef: MatDialogRef<CreateUserComponent>) {}
 
   ngOnInit(): void {
   }
@@ -22,6 +23,7 @@ export class CreateUserComponent implements OnInit {
       this.service.createUser(this.service.form.value);
       this.notificationService.success('::Submitted Successfully::')
       this.clearForm();
+      this.closeDialog()
     }
   }
 
@@ -31,6 +33,10 @@ export class CreateUserComponent implements OnInit {
 
   onClear() {
     this.clearForm();
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 
 }
