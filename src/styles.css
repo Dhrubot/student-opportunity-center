@@ -17,11 +17,23 @@ body { margin: 0;}
   overflow: scroll;
   width: 90%;
   margin-left: 5%;
+  padding: 10px;
+  margin-bottom: 3%;
 }
 
 .search-input {
   border-radius: 20px;
 }
+
+.table-header-title {
+  text-align: center;
+  padding-top: 10px;
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+  padding: 8px !important;
+}
+
 
 /* .toolbar-container {
   display: flex;

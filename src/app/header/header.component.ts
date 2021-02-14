@@ -9,7 +9,7 @@ import { CreateUserComponent } from '../users/user/create-user/create-user.compo
 })
 export class HeaderComponent implements OnInit {
 
-  title = 'student-opportunity-center';
+  title = 'Student Oppotunity Center';
 
   constructor(private dialog: MatDialog) { }
 
