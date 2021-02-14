@@ -17,7 +17,6 @@ html, body, .app-root, .app-frame {
 
 .search-field {
   width: 60%;
-  color: black;
 }
 
 .mat-elevation-z8 {
@@ -70,6 +69,19 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
 .skill-form-field {
   width: 100%;
 }
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+
+.mat-stepper-horizontal .mat-horizontal-stepper-header {
+  padding: 15px;
+}
+
+
+
 
 
 /* .toolbar-container {

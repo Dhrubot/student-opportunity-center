@@ -1,5 +1,5 @@
 <!-- Employment History -->
-<h3>Employment History</h3>
+<h1 class='mat-headline'>Employment History</h1>
 <ng-container [formGroup]="service.form">
   <div
     formArrayName="employmentHistory"
@@ -71,7 +71,7 @@
           ></mat-datepicker-toggle>
           <mat-datepicker #picker2></mat-datepicker>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field *ngIf="!isCurrentJob.checked">
           <input
             formControlName="reasonForLeaving"
             matInput
