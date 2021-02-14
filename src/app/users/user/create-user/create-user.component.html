@@ -13,10 +13,13 @@
       <app-user-skill></app-user-skill>
     </mat-step>
     <mat-step>
-      <div *ngiIf='!service.form.valid'>
-        <h3 class='.mat-subheading-2'>You have missed something! Please Go Back to Check your Input</h3>
+      <div>
+        <div *ngIf='!service.form.valid'>
+          <h3 class='.mat-subheading-2'>You missed something!</h3>
+            <h4>Please Go Back and check your answers</h4>
+        </div>
       </div>
-      <div *ngiIf='service.form.valid'>
+      <div *ngIf='service.form.valid'>
         <h3 class='.mat-subheading-2'>Click Submit for Registration</h3>
       </div>
       <div class="button-row" align="end">
