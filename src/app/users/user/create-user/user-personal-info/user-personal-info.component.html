@@ -1,8 +1,8 @@
-<div fxLayout='column' fxLayoutAlign="space-between none" fxLayoutGap='50px' [formGroup]='formService.form'>
+<h3>Personal Details</h3>
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around start" [formGroup]='formService.form'>
     <!-- Personal Details -->
-    <h3>Personal Details</h3>
 
-    <div fxLayout='row' fxLayoutAlign="none center" fxFlex='15'>
+    <div fxLayout="column" fxLayoutAlign="space-around start" >
         <!-- <input type="hidden" formControlName="$key" /> -->
         <mat-form-field>
           <input
@@ -26,8 +26,7 @@
     </div>
 
 
-    <div fxLayout='row' fxLayoutAlign="none center">
-      <div class="personal-details-container">
+    <div fxLayout="column" fxLayoutAlign="space-around start" >
         <mat-form-field>
           <input
             formControlName="email"
@@ -44,7 +43,9 @@
             required
           />
         </mat-form-field>
-      </div>
     </div>
+
   </div>
-<button mat-button type='button' matStepperNext>Next</button>
+  <div class='stepper-button' align='end'> 
+    <button  mat-button type='button' matStepperNext>Next</button>
+  </div>

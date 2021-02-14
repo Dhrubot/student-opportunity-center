@@ -1,9 +1,86 @@
-    <!-- Employment History -->
-    <ng-container [formGroup]='service.form'>
+<!-- Employment History -->
+<ng-container [formGroup]="service.form">
+  <div
+    formArrayName="employmentHistory"
+    *ngFor="let _ of employmentHistory.controls; let i = index"
+  >
+    <h3>Employment History</h3>
+
     <div
-      formArrayName="employmentHistory"
-      *ngFor="let _ of employmentHistory.controls; let i = index"
+      fxLayout="row wrap"
+      fxLayout.xs="column"
+      fxLayoutAlign="space-around start"
+      formGroupName="address"
+      [formGroupName]="i"
     >
+      <div fxLayout="column" fxLayoutAlign="space-around start">
+        <mat-form-field>
+          <input
+            formControlName="companyName"
+            matInput
+            placeholder="Copmany Name"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            formControlName="companyAddress"
+            matInput
+            placeholder="Company Address"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            formControlName="companyPhoneNumber"
+            matInput
+            placeholder="company contact no"
+          />
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="space-around start">
+        <mat-form-field>
+          <input formControlName="jobTitle" matInput placeholder="Title" />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="picker1"
+            formControlName="startDate"
+            matInput
+            placeholder="Job Started"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-checkbox formControlName="isCurrentJob" #isCurrentJob
+          >Currently Working</mat-checkbox
+        >
+        <mat-form-field *ngIf="!isCurrentJob.checked">
+          <input
+            matInput
+            [matDatepicker]="picker2"
+            formControlName="endDate"
+            matInput
+            placeholder="Job Left"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            formControlName="reasonForLeaving"
+            matInput
+            placeholder="Reason for Leaving..."
+          />
+        </mat-form-field>
+      </div>
+    </div>
 
     <div>
       <button
@@ -15,91 +92,18 @@
         ADD MORE
       </button>
       <button
-      mat-raised-button
-      type="button"
-      color="warn"
-      (click)="deleteEmploymentHistoryForm(i)"
-    >
-      DELETE
-    </button>
+        mat-raised-button
+        type="button"
+        color="warn"
+        (click)="deleteEmploymentHistoryForm(i)"
+      >
+        DELETE
+      </button>
     </div>
+  </div>
+</ng-container>
 
-    
-      <mat-grid-list cols="2" rowHeight="300px" [formGroupName]="i">
-        <h3>Employment History</h3>
-        <mat-grid-tile>
-          <div class="address-details-container">
-            <mat-form-field>
-              <input
-                formControlName="companyName"
-                matInput
-                placeholder="Copmany Name"
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                formControlName="companyAddress"
-                matInput
-                placeholder="Company Address"
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                formControlName="companyPhoneNumber"
-                matInput
-                placeholder="company contact no"
-              />
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-  
-        <mat-grid-tile>
-          <div class="address-details-container">
-            <mat-form-field>
-              <input formControlName="jobTitle" matInput placeholder="Title" />
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                matInput
-                [matDatepicker]="picker1"
-                formControlName="startDate"
-                matInput
-                placeholder="Job Started"
-              />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="picker1"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #picker1></mat-datepicker>
-            </mat-form-field>
-            <mat-checkbox formControlName="isCurrentJob" #isCurrentJob
-              >Currently Working</mat-checkbox
-            >
-            <mat-form-field *ngIf="!isCurrentJob.checked">
-              <input
-                matInput
-                [matDatepicker]="picker2"
-                formControlName="endDate"
-                matInput
-                placeholder="Job Left"
-              />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="picker2"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #picker2></mat-datepicker>
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                formControlName="reasonForLeaving"
-                matInput
-                placeholder="Reason for Leaving..."
-              />
-            </mat-form-field>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
-  </ng-container>
-<button type="button" mat-button matStepperPrevious>Back</button>
-<button type="button" mat-button matStepperNext>Next</button>
+<div class="stepper-button" align='end'>
+  <button type="button" mat-button matStepperPrevious>Back</button>
+  <button type="button" mat-button matStepperNext>Next</button>
+</div>

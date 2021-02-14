@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   onClickCreateUser(){
     const dialogConfig = new MatDialogConfig() 
-    dialogConfig.width = '70%';
+    dialogConfig.width = '70%'
     this.dialog.open(CreateUserComponent, dialogConfig)
   }
 

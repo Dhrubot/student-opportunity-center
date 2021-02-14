@@ -1,51 +1,49 @@
-    <!-- Address Details -->
-  <ng-container [formGroup]='formService.form'>
-    <mat-grid-list cols="2" rowHeight="300px" formGroupName="address">
-      <h3>Address</h3>
-      <mat-grid-tile>
-        <div class="address-details-container">
-          <mat-form-field>
-            <input
-              formControlName="addressField1"
-              matInput
-              placeholder="Address Field 1"
-              required
-            />
-          </mat-form-field>
-          <mat-form-field>
-            <input
-              formControlName="addressField2"
-              matInput
-              placeholder="Address Field 2"
-            />
-          </mat-form-field>
-          <mat-form-field>
-            <input formControlName="city" matInput placeholder="city" required />
-          </mat-form-field>
-        </div>
-      </mat-grid-tile>
-  
-      <mat-grid-tile>
-        <div class="address-details-container">
-          <mat-form-field>
-            <input
-              formControlName="state"
-              matInput
-              placeholder="State"
-              required
-            />
-          </mat-form-field>
-          <mat-form-field>
-            <input
-              formControlName="zipcode"
-              matInput
-              placeholder="Zipcode"
-              required
-            />
-          </mat-form-field>
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </ng-container>
-<button type='button' mat-button matStepperPrevious>Back</button>
-<button type='button' mat-button matStepperNext>Next</button>
+<!-- Address Details -->
+<h3>Address</h3>
+<ng-container [formGroup]="formService.form">
+  <div
+    fxLayout="row wrap"
+    fxLayout.xs="column"
+    fxLayoutAlign="space-around start"
+    formGroupName="address"
+  >
+    <div fxLayout="column" fxLayoutAlign="space-around start">
+        <mat-form-field>
+          <input
+            formControlName="addressField1"
+            matInput
+            placeholder="Address Field 1"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            formControlName="addressField2"
+            matInput
+            placeholder="Address Field 2"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="city" matInput placeholder="city" required />
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="space-around start">
+      <mat-form-field>
+        <input formControlName="state" matInput placeholder="State" required />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          formControlName="zipcode"
+          matInput
+          placeholder="Zipcode"
+          required
+        />
+      </mat-form-field>
+    </div>
+  </div>
+</ng-container>
+<div class='stepper-button' align="end">
+  <button type="button" mat-button matStepperPrevious>Back</button>
+  <button type="button" mat-button matStepperNext>Next</button>
+</div>

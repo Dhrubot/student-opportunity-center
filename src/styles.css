@@ -6,8 +6,10 @@ html, body, .app-root, .app-frame {
   height: 100%;
   box-sizing: border-box;
   color: #e0e0e0;
-  background-color: #212121;
+  background-color: #303030;
+  width: 100%;
 }
+
 
 .main-container {
   height: 100%;
@@ -19,7 +21,7 @@ html, body, .app-root, .app-frame {
 }
 
 .mat-elevation-z8 {
-  overflow: scroll;
+  overflow: auto;
   width: 90%;
   margin-left: 5%;
   padding: 10px;
@@ -60,6 +62,11 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
   display: inline;
   padding: 5px;
 }
+
+.user-table {
+  width: 100%;
+}
+
 
 /* .toolbar-container {
   display: flex;
