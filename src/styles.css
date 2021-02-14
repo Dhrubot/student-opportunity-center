@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "@angular/material/prebuilt-themes/pink-bluegrey.css";
 
-html, body { height: 100%;}
-body { margin: 0;}
+html, body, .app-root, .app-frame {
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+  color: #e0e0e0;
+  background-color: #212121;
+}
 
 .main-container {
   height: 100%;
@@ -55,6 +60,7 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
   display: inline;
   padding: 5px;
 }
+
 /* .toolbar-container {
   display: flex;
   justify-content: center;

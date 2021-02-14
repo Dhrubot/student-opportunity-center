@@ -1,8 +1,8 @@
-<mat-grid-list cols="2" rowHeight="300px" [formGroup]='formService.form'>
+<div fxLayout='column' fxLayoutAlign="space-between none" fxLayoutGap='50px' [formGroup]='formService.form'>
     <!-- Personal Details -->
     <h3>Personal Details</h3>
-    <mat-grid-tile>
-      <div class="personal-details-container">
+
+    <div fxLayout='row' fxLayoutAlign="none center" fxFlex='15'>
         <!-- <input type="hidden" formControlName="$key" /> -->
         <mat-form-field>
           <input
@@ -23,9 +23,10 @@
         <mat-form-field>
           <input formControlName="age" matInput placeholder="Age" required />
         </mat-form-field>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
+    </div>
+
+
+    <div fxLayout='row' fxLayoutAlign="none center">
       <div class="personal-details-container">
         <mat-form-field>
           <input
@@ -44,7 +45,6 @@
           />
         </mat-form-field>
       </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <br />
-  <button mat-button type='button' matStepperNext>Next</button>
+    </div>
+  </div>
+<button mat-button type='button' matStepperNext>Next</button>
