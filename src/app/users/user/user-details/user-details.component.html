@@ -1,70 +1,96 @@
 <h2 mat-dialog-title>{{ data.personalInfo.firstName }}'s Information</h2>
 <mat-divider></mat-divider>
-<mat-dialog-content class="mat-typography">
-  <h3 mat-dialog-title><strong>Personal Info</strong></h3>
-  <p>
-    Full Name: {{ userPersonalInfo.firstName | titlecase }}
-    {{ userPersonalInfo.lastName | titlecase }}
-  </p>
-  <p>Age: {{ userPersonalInfo.age }}</p>
-  <p>Email: {{ userPersonalInfo.email }}</p>
-  <p>Phone: {{ userPersonalInfo.phone }}</p>
-  <mat-divider></mat-divider>
-  <ng-container *ngFor="let _ of address; let i = index">
-    <h3 mat-dialog-title><strong>Address</strong></h3>
-    <p>Street Address: {{ address[i].address.addressField1 }}</p>
-    <p>Apt/Fl: {{ address[i].address.addressField2 || "" }}</p>
-    <p>City: {{ address[i].address.city }}</p>
-    <p>State: {{ address[i].address.state }}</p>
-    <p>Zipcode: {{ address[i].address.zipcode }}</p>
-  </ng-container>
-  <mat-divider></mat-divider>
-  <h3 mat-dialog-title><strong>Skills</strong></h3>
-  <ul>
-    <ng-container *ngFor="let skill of userPersonalInfo.skills;">
-      <li>{{ skill | titlecase }}</li>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-dialog-content class="mat-typography">
+    <h3 mat-dialog-title><strong>Personal Info</strong></h3>
+    <p>
+      <strong>Full Name: </strong> {{ userPersonalInfo.firstName | titlecase }}
+      {{ userPersonalInfo.lastName | titlecase }}
+    </p>
+    <p><strong>Age:</strong> {{ userPersonalInfo.age }}</p>
+    <p><strong>Email:</strong> {{ userPersonalInfo.email }}</p>
+    <p><strong>Phone:</strong> {{ userPersonalInfo.phone }}</p>
+    <mat-divider></mat-divider>
+    <ng-container *ngFor="let _ of address; let i = index">
+      <h3 mat-dialog-title><strong>Address</strong></h3>
+      <p>
+        <strong>Street Address:</strong> {{ address[i].address.addressField1 }}
+      </p>
+      <p>
+        <strong>Apt/Fl:</strong> {{ address[i].address.addressField2 || "" }}
+      </p>
+      <p><strong>City:</strong> {{ address[i].address.city }}</p>
+      <p><strong>State:</strong> {{ address[i].address.state }}</p>
+      <p><strong>Zipcode:</strong> {{ address[i].address.zipcode }}</p>
     </ng-container>
-  </ul>
-  <mat-divider></mat-divider>
-  <ng-container *ngFor="let _ of employmentHistory; let i = index">
-    <ng-container
-      *ngFor="
-        let hello of employmentHistory[i].employmentHistory;
-        let j = index
-      "
-    >
-      <h3 mat-dialog-title>
-        <strong>Employment History {{ j + 1 }}</strong>
-      </h3>
-      <!-- new Date(timestamp).toLocaleDateString("en-us") -->
-      <p>
-        Company Name:
-        {{ employmentHistory[i].employmentHistory[j].companyName }}
-      </p>
-      <p>Company Address: {{ employmentHistory[i].employmentHistory[j].companyAddress }}</p>
-      <p>
-        Company Phone Number:
-        {{ employmentHistory[i].employmentHistory[j].companyPhoneNumber }}
-      </p>
-      <p>Job Title: {{ employmentHistory[i].employmentHistory[j].jobTitle }}</p>
-      <p>
-        Start Date:
-        {{
-          employmentHistory[i].employmentHistory[j].startDate.toDate() | date
-        }}
-      </p>
-      <p *ngIf="!employmentHistory[i].employmentHistory[j].isCurrentJob">
-        End Date:
-        {{ employmentHistory[i].employmentHistory[j].endDate.toDate() | date }}
-      </p>
-      <p>
-        Reason For Leaving:
-        {{ employmentHistory[i].employmentHistory[j].reasonForLeaving }}
-      </p>
+    <mat-divider></mat-divider>
+    <h3 mat-dialog-title><strong>Skills</strong></h3>
+    <ul class="ul-for-skills">
+      <ng-container *ngFor="let skill of userPersonalInfo.skills">
+        <li class="li-for-skills">{{ skill | titlecase }}</li>
+      </ng-container>
+    </ul>
+    <mat-divider></mat-divider>
+    <ng-container *ngFor="let _ of employmentHistory; let i = index">
+      <ng-container
+        *ngFor="
+          let hello of employmentHistory[i].employmentHistory;
+          let j = index
+        "
+      >
+        <h3 mat-dialog-title>
+          <strong>Employment History {{ j + 1 }}</strong>
+        </h3>
+        <!-- new Date(timestamp).toLocaleDateString("en-us") -->
+        <p>
+          <strong>Company Name:</strong>
+          {{
+            employmentHistory[i].employmentHistory[j].companyName | titlecase
+          }}
+        </p>
+        <p>
+          <strong>Company Address:</strong>
+          {{ employmentHistory[i].employmentHistory[j].companyAddress }}
+        </p>
+        <p>
+          <strong>Company Phone Number:</strong>
+          {{ employmentHistory[i].employmentHistory[j].companyPhoneNumber }}
+        </p>
+        <p>
+          <strong>Job Title:</strong>
+          {{ employmentHistory[i].employmentHistory[j].jobTitle | titlecase }}
+        </p>
+        <p>
+          <strong>Start Date:</strong>
+          {{
+            employmentHistory[i].employmentHistory[j].startDate.toDate() | date
+          }}
+        </p>
+        <ng-container
+          *ngIf="!employmentHistory[i].employmentHistory[j].isCurrentJob"
+        >
+          <p>
+            <strong>End Date:</strong>
+            {{
+              employmentHistory[i].employmentHistory[j].endDate.toDate() | date
+            }}
+          </p>
+          <p>
+            <strong>Reason For Leaving:</strong>
+            {{ employmentHistory[i].employmentHistory[j].reasonForLeaving }}
+          </p>
+        </ng-container>
+      <ng-container *ngIf="employmentHistory[i].employmentHistory[j].isCurrentJob">
+        <p>
+          <strong>Employment Status:</strong>
+          Currently Employed 
+        </p>
+      </ng-container>
+      </ng-container>
     </ng-container>
-  </ng-container>
-  <mat-divider></mat-divider>
-</mat-dialog-content>
+    <mat-divider></mat-divider>
+  </mat-dialog-content>
+</div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Close</button>
 </div>
