@@ -57,11 +57,21 @@
     </ng-container>
 
     <!-- Row shown when there is no matching data. -->
+    <ng-container *ngiIf='searchTerm'>
     <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">
         No data matching the Search {{ input.value }}
       </td>
     </tr>
+  </ng-container>
+  <ng-container  *ngIf='!searchTerm || !userList'>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        DATABASE EMPTY
+      </td>
+    </tr>
+  </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr

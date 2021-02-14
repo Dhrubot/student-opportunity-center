@@ -1,11 +1,5 @@
 {
-  "targets": {
-    "soc-users": {
-      "hosting": {
-        "student-opportunity-center": [
-          "soc-users"
-        ]
-      }
-    }
+  "projects": {
+    "default": "soc-users"
   }
 }
