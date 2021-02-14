@@ -8,6 +8,21 @@ body { margin: 0;}
   height: 100%;
 }
 
+.search-field {
+  width: 60%;
+  color: black;
+}
+
+.mat-elevation-z8 {
+  overflow: scroll;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.search-input {
+  border-radius: 20px;
+}
+
 /* .toolbar-container {
   display: flex;
   justify-content: center;
