@@ -1,5 +1,17 @@
 # StudentOpportunityCenter
 
+
+
+## This was written for an Assessment. Company: Students Opporptunity Center
+
+### Purpose
+This app shows all users and user data from the cloud database and lets new user to register to the database as well.
+
+### Major Technologies Used:
+For Front End: Angular, @angular/material, @angular/fxLayout and others.
+For Back End: Firebase and Cloud Firestore.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
 
 ## Development server

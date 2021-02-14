@@ -43,7 +43,6 @@ export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
       next: (users) => {
         this.userList = new MatTableDataSource(users);
         this.userList.paginator = this.paginator;
-        console.log(users);
       },
     });
   }
