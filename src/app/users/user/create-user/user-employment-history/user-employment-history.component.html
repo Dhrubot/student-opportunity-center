@@ -1,11 +1,10 @@
 <!-- Employment History -->
+<h3>Employment History</h3>
 <ng-container [formGroup]="service.form">
   <div
     formArrayName="employmentHistory"
     *ngFor="let _ of employmentHistory.controls; let i = index"
   >
-    <h3>Employment History</h3>
-
     <div
       fxLayout="row wrap"
       fxLayout.xs="column"
@@ -81,25 +80,24 @@
         </mat-form-field>
       </div>
     </div>
-
-    <div>
       <button
-        mat-raised-button
+        mat-button
         type="button"
         color="secondary"
         (click)="addEmploymentHistoryForm()"
       >
-        ADD MORE
+        Add More
       </button>
       <button
-        mat-raised-button
+        mat-button
         type="button"
         color="warn"
         (click)="deleteEmploymentHistoryForm(i)"
+        *ngIf='employmentHistory.controls.length > 1'
       >
         DELETE
       </button>
-    </div>
+    <mat-divider></mat-divider>
   </div>
 </ng-container>
 
